@@ -1,0 +1,8 @@
+'''4. Write a program to generate a 3*5*8 3D array whose each element is 0.
+'''
+
+import numpy as np
+
+arr=np.zeros((3,5,8),dtype=int)
+
+print(arr)

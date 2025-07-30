@@ -1,0 +1,11 @@
+'''7. Assuming that we have some email addresses in the "username@companyname.com"
+format, write a program to print the company name of a given email address. Both user
+names and company names are composed of letters only.
+'''
+
+mail=input("Enter mail:")
+
+i1=mail.index("@")
+i2=mail.index(".com")
+
+print("Company name:",mail[i1+1:i2])
