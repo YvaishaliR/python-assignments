@@ -1,6 +1,6 @@
-'''5. Write a binary search function which searches an item in a sorted list. The function
-should return the index of the element to be searched in the list.
-'''
+'''5. Write a binary search function which searches an item in a sorted list. 
+The function should return the index of the element to be searched in
+the list. '''
 def bsearch(arr, target):
     low = 0
     high = len(arr) - 1
