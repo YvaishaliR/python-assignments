@@ -1,0 +1,35 @@
+import os
+import sys
+
+def print_tree(directory, prefix=""):
+    try:
+        entries = os.listdir(directory)
+    except PermissionError:
+        print(prefix + "PermissionError: Cannot access", directory)
+        return
+
+    entries.sort()  
+    total = len(entries)
+    
+    for index, entry in enumerate(entries):
+        path = os.path.join(directory, entry)
+        connector = "└── " if index == total - 1 else "├── "
+        print(prefix + connector + entry)
+
+        if os.path.isdir(path):
+            extension = "    " if index == total - 1 else "│   "
+            print_tree(path, prefix + extension)
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("enter directory")
+        sys.exit(1)
+
+    root_dir = sys.argv[1]
+
+    if not os.path.isdir(root_dir):
+        print(f"Error: {root_dir} is not a valid directory")
+        sys.exit(1)
+
+    print(root_dir)
+    print_tree(root_dir)
